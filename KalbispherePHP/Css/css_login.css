@@ -1,0 +1,41 @@
+body{
+	margin : 0 px;
+	background-image : url('../Images/bg_login.png');
+}
+
+#main_logo{
+	margin : 50px 0 0 50px;
+}
+
+#outter_form_login{
+	margin : 170px 0 0 100px;
+}
+
+#logo_sign{
+	margin-left : 55.5px;
+}
+
+.inputan{
+	border : 3px solid #fff;
+	padding : 5px;
+	margin-top : 10px;
+}
+
+#tb_sign{
+	margin-top : 30px;
+}
+
+input{
+	background : none;
+	color : #fff;
+	font-size : 20px;
+	border : none;
+	//border-radius :10px;
+	width : 300px;
+	height : 40px;
+}
+
+button{
+	width : 300px;
+	height : 40px;
+}
