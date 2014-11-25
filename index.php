@@ -1,5 +1,6 @@
 <html>
 	<head>
+<<<<<<< HEAD
 	
 	</head>
 	<body style="margin:0px;">
@@ -33,5 +34,11 @@
 			</div>
 			</div>
 		</div>
+=======
+		<title></title>
+	</head>
+	<body>
+	ada
+>>>>>>> origin/master
 	</body>
 </html>
