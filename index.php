@@ -1,7 +1,6 @@
 <html>
 	<head>
-<<<<<<< HEAD
-	
+	head
 	</head>
 	<body style="margin:0px;">
 		<div><!-- outer -->
@@ -18,19 +17,37 @@
 							f
 						</td>
 					</tr>
-					<tr style="float: right;">
+					<tr>
 						<td style="width: 500px;">
 							Student Activities
 						</td>
 						<td style="width: 500px;">
-							 Activities
+							 Articles
 						</td>
 						<td style="width: 500px;">
 							Kalbisiana
 						</td>
-						
 					</tr>
 				</table>
+			</div>
+			<div style="float:right">
+				<div>
+					<table>
+						<tr>
+							<td style="width:50px;">
+								search
+							</td>
+						</tr>
+						<tr>
+							<td style="100px";>
+								tanggal
+							</td>
+						</tr>
+					</table>
+				</div>
+					<div>
+						login
+					</div>
 			</div>
 			</div>
 		</div>
