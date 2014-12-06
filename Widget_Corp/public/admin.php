@@ -2,7 +2,7 @@
 <?php include("../includes/layouts/header.php"); ?>
 
 <div id="main">
-	<div id="navigaton">
+	<div id="navigation">
 		&nbsp;
 	</div>
 	<div id="page">
