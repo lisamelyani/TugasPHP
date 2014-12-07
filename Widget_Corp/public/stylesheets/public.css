@@ -90,6 +90,7 @@ ul.subjects{
 ul.pages{
 	padding-left: 2em;
 	list-style: square;
+	font-weight: normal;
 }
 .selected { font-weight: bold;}
 
@@ -107,4 +108,10 @@ ul.pages{
 }
 #page h3 {
 	color: #8D0D19;
+}
+
+div.message{
+	border: 2-x solid #8D0D19;
+	color: #8D0D19; font-weight: bold;
+	margin: 1em 0 ; padding: 1em;
 }
