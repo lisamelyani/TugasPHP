@@ -61,7 +61,7 @@
 		$query .= "WHERE id = {$safe_page_id} ";
 		$query .= "LIMIT 1";
 		$page_set = mysqli_query($connection, $query);
-		confirm_query($subject_set);
+		confirm_query($page_set);
 		if ($page = mysqli_fetch_assoc($page_set)){
 			return $page;
 		}else {
@@ -94,7 +94,7 @@
 						$output .= " class=\"selected\"";
 					}
 					$output .= ">";
-					$output .= "<a href="manage_content.php?subject=";
+					$output .= "<a href=\"manage_content.php?subject=";
 					$output .= urlencode($subject["id"]); 
 					$output .= "\">";
 					$output .= $subject["menu_name"];

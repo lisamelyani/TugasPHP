@@ -11,7 +11,7 @@
 		<h2>Create Subject</h2>
 		
 		<form action="create_subject.php" method="post">
-			<p>Menu name:
+			<p>Subject name:
 				<input type="text" name="menu_name" value=""/>
 			</p>
 			<p>Position:
@@ -20,15 +20,15 @@
 					$subject_set = find_all_subjects();
 					$subject_count = mysqli_num_rows($subject_set);
 					for($count=1; $count <= ($subject_count +1); $count++){
-						echo "<option value=\"{$count}\">{$count}</option>"
+						echo "<option value=\"{$count}\">{$count}</option>";
 					}
 				?>
 				</select>	
 			</p>
 			<p>Visible:
-				<input type="radio" name=visible" value="0" /> No
+				<input type="radio" name="visible" value="0" /> No
 				&nbsp;
-				<input type="radio" name=visible" value="1" /> Yes
+				<input type="radio" name="visible" value="1" /> Yes
 			</p>
 			<input type="submit" value="Create Subject" />
 		</form>
