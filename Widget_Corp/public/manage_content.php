@@ -1,57 +1,24 @@
-<?php
-	//1. Create a database Connection
-	$dbhost = "localhost";
-	$dbuser = "widget_cms";
-	$dbpass = "scretpassword";
-	$connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
-	//Test if connection succeded
-	if(mysqli_connect_errno()){
-		die("Database Connection failed: "
-			mysqli_connect_error() . " (" . mysqli_connect_errno() . ")");
-	}
-?>
-
+<?php require_once("../includes/db_connection.php"); ?>
 <?php require_once("../includes/functions.php"); ?>
-<?
-	// 2. Perform database query
-	$query = "SELECT * ";
-	$query = "FROM subjects ";
-	$query = "WHERE visible = 1";
-	$query = "ORDER BY position ASC";
-	$result = mysqli_query($connection, $query);
-	// Test if there was a query error
-	if($result){
-		die("Database query failed");
-	}
-?>
 <?php include("../includes/layouts/header.php"); ?>
+<?php find_selected_page();?>
+
 <div id="main">
 	<div id="navigation">
-		<ul>
-			<?php
-				// 3. Use returned data (if any)
-				while($subject = mysqli_fetch_assoc($result)){
-					//output data from each row
-			?>
-				<li><?php echo $subject["menu_name"]. " (" . $subject["id"] . ")"; ?></li>
-			<?php
-				}
-			?>
-		</ul>
+		<?php echo navigation($current_subject,$current_page);?>
 	</div>
 	<div id="page">
-		<h2>Manage Content</h2>
-				
+		<?php if($current_subject){?>
+		<h2>Manage Subject</h2>	
+			Menu name: <?php echo $current_subject["menu_name"]; ?> <br />
+			
+		<?php } elseif ($current_page) { ?>
+			<h2>Manage Page</h2>
+			Menu name: <?php echo $current_page;["menu_name"]; ?> <br />
+			
+		<?php } else { ?>
+			please select a subject or a page.
+		<?php } ?>
 	</div>
 </div>
-<?php
-	//4. Release returned data
-	mysqli_free_result($result);
-?>
-
 <?php include("../includes/layouts/footer.php"); ?>
-
-<?php
-	//5. Close database conncetion
-	mysqli_close($connection);
-?>
