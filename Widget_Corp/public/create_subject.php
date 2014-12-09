@@ -19,7 +19,7 @@
 	
 	if(!empty($errors)){
 		$_SESSION["errors"] = $errors;
-		redirect_to("new_subject.php")
+		redirect_to("new_subject.php");
 	}
 	
 	$query = "INSERT INTO subjects(";

@@ -1,5 +1,5 @@
 <?php
-	session_statrt();
+	session_start();
 	
 	function message(){
 		if (isset($_SESSION["message"])){

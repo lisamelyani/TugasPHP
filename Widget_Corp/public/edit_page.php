@@ -50,7 +50,7 @@
 	}else{
 	} //end: if(isset($_POST['submit']))
 ?>
-
+<?php $layout_context = "admin";?>
 <?php include("../includes/layouts/header.php"); ?>
 
 <div id="main">
@@ -71,7 +71,7 @@
 				<?php
 					$page_set = find_pages_for_subject($current_subject["id"]);
 					$page_count = mysqli_num_rows($page_set);
-					for($count=1; $count <= ($page_count + 1; $count++){
+					for($count=1; $count <= $page_count + 1; $count++){
 						echo "<option value=\"{$count}\"";
 						if($current_page["position"]==$count){
 							echo " selected";	
@@ -82,14 +82,14 @@
 				</select>	
 			</p>
 			<p>Visible:
-				<input type="radio" name="visible" value="0" <?php if $current_page["visible"]==0){echo "checked";}?>/>No
+				<input type="radio" name="visible" value="0" <?php if ($current_page["visible"]==0){echo "checked";}?>/>No
 				&nbsp;
-				<input type="radio" name="visible" value="1" <?php if $current_page["visible"]==1){echo "checked";}?>/>Yes
+				<input type="radio" name="visible" value="1" <?php if ($current_page["visible"]==1){echo "checked";}?>/>Yes
 			</p>
 			<p>Content:<br />
 				<textarea name="content" rows="20" cols="80"><?php echo urlencode($current_page["content"]);?></textarea>
 			</p>
-			<input type="submit" value="Edit Page" />
+			<input type="submit" name="submit" value="Edit Page" />
 		</form>
 		<br />
 		<a href="manage_content.php?page=<?php echo urlencode($current_page["id"]);?>">Cancel</a>

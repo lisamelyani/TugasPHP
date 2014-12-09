@@ -20,7 +20,7 @@
 	$fields_with_max_lengths = array ("menu_name" => 30);
 	validate_max_lengths($fields_with_max_lengths);
 	
-	if(!empty($errors)){
+	if(empty($errors)){
 	
 		//perform update
 	
@@ -30,14 +30,14 @@
 	$visible=(int)$_POST["visible"];
 	
 	$query = "UPDATE subjects SET";
-	$query .= "menu_name = ''{$menu_name}',";
+	$query .= "menu_name = '{$menu_name}',";
 	$query .= "position = {$position},";
 	$query .= "visible = {$visible}";
 	$query .= "WHERE id={$id} ";
 	$query .= "LIMIT 1";
 	$result = mysqli_query ($connection, $query);
 	
-	if($result && mysqli_affected_rows($connection) >= 0){
+	if($result && mysqli_affected_rows($connection) ==1 ){
 		$_SESSION["$message"] ="Subject updated.";
 		redirect_to("manage_content.php");
 	} else{
@@ -48,6 +48,7 @@
 	} //end: if(isset($_POST['submit']))
 ?>
 
+<?php $layout_context = "admin";?>
 <?php include("../includes/layouts/header.php"); ?>
 
 <div id="main">
@@ -70,10 +71,10 @@
 			<p>Position:
 				<select name="position">
 				<?php
-					$subject_set = find_all_subjects();
-					if ($current_subject["postion"] == $count)
+					$subject_set = find_all_subjects(false);
+					//if ($current_subject["postion"] == $count)
 					$subject_count = mysqli_num_rows($subject_set);
-					for($count=1; $count <= ($subject_count; count++){
+					for($count=1; $count <= $subject_count; $count++){
 						echo "<option value=\"{$count}\"";
 						if($current_subject["position"]==$count){
 							echo " selected";	
@@ -84,11 +85,11 @@
 				</select>	
 			</p>
 			<p>Visible:
-				<input type="radio" name="visible" value="0" <?php if $current_subject["visible"]==0){echo "checked";}?> /> No
+				<input type="radio" name="visible" value="0" <?php if ($current_subject["visible"]==0){echo "checked";}?> /> No
 				&nbsp;
-				<input type="radio" name="visible" value="1" <?php if $current_subject["visible"]==1){echo "checked";}?> /> Yes
+				<input type="radio" name="visible" value="1" <?php if ($current_subject["visible"]==1){echo "checked";}?> /> Yes
 			</p>
-			<input type="submit" value="Edit Subject" />
+			<input type="submit" name="submit" value="Edit Subject" />
 		</form>
 		<br />
 		<a href="manage_content.php">Cancel</a>

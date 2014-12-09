@@ -20,7 +20,7 @@
 	$fields_with_max_lengths = array ("menu_name" => 30);
 	validate_max_lengths($fields_with_max_lengths);
 	
-	if(!empty($errors)){
+	if(empty($errors)){ 
 	
 		//perform create
 	
@@ -48,6 +48,7 @@
 	} //end: if(isset($_POST['submit']))
 ?>
 
+<?php $layout_context = "admin";?>
 <?php include("../includes/layouts/header.php"); ?>
 
 <div id="main">

@@ -15,9 +15,9 @@ $errors = array();
 	function validate_presences($required_fields){
 		global $errors;
 		foreach($required_fields as $field){
-			$vslue = trim($_POST[$field]);
+			$value = trim($_POST[$field]);
 			if(!has_presence($value)){
-				$errors[$field]=ucfirst($field) . " can't be blank";
+				$errors[$field]=fieldname_as_text($field) . " can't be blank";
 			}
 		}
 	}
@@ -28,10 +28,10 @@ $errors = array();
 	
 	function validate_max_lengths($fields_with_max_lengths){
 		global $errors;
-		foreach($fields_max_lengths as $fields => $max){
+		foreach($fields_with_max_lengths as $field => $max){
 			$value = trim($_POST[$field]);
 			if(!has_max_length($value, $max)){
-				$errors[$field]=ucfirst($field) . " is too long";
+				$errors[$field]=fieldname_as_text($field) . " is too long";
 			}
 		}
 	}
