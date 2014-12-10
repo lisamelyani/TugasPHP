@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2014 at 03:32 PM
+-- Generation Time: Dec 10, 2014 at 06:30 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -30,7 +30,14 @@ CREATE TABLE IF NOT EXISTS `admins` (
 `id` int(11) NOT NULL,
   `username` varchar(50) DEFAULT NULL,
   `hased_password` varchar(60) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `username`, `hased_password`) VALUES
+(2, 'admin', '$2y$10$NTM0M2JjODFjMzc4ZjQ1YerzqQRsYngZ16gFXGZJ0yRimSNElSQKS');
 
 -- --------------------------------------------------------
 
@@ -68,9 +75,9 @@ INSERT INTO `pages` (`id`, `subject_id`, `menu_name`, `position`, `visible`, `co
 CREATE TABLE IF NOT EXISTS `subjects` (
 `id` int(11) NOT NULL,
   `menu_name` varchar(100) DEFAULT NULL,
-  `position` int(1) DEFAULT NULL,
+  `position` int(11) DEFAULT NULL,
   `visible` int(1) DEFAULT '1'
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `subjects`
@@ -80,9 +87,9 @@ INSERT INTO `subjects` (`id`, `menu_name`, `position`, `visible`) VALUES
 (1, 'About Widget Corp', 1, 1),
 (2, 'Product', 2, 1),
 (3, 'Services', 3, 1),
-(4, 'KOSONG', 4, 0),
-(5, 'KOSONG', 5, 0),
-(6, 'Today`s Widget Trivia', 6, 1);
+(10, 'Subject Sample', 4, 0),
+(11, 'Test Subject', 5, 0),
+(14, 'Today''s Widget Trivia', 6, 1);
 
 --
 -- Indexes for dumped tables
@@ -114,7 +121,7 @@ ALTER TABLE `subjects`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `pages`
 --
@@ -124,7 +131,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
